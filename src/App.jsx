@@ -1,7 +1,9 @@
+import Navbar from './components/navbar';
+
 function App() {
   return (
     <>
-      <h1>react vite</h1>
+      <Navbar />
     </>
   );
 }
