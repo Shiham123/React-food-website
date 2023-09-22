@@ -3,6 +3,26 @@ import { data } from '../data/data.js';
 
 const Food = () => {
   const [foods, setFood] = useState(data);
+
+  // filter here
+  const filterType = (category) => {
+    setFood(
+      data.filter((food) => {
+        return food.category === category;
+      })
+    );
+  };
+
+  // filter by price
+
+  const filterPrice = (price) => {
+    setFood(
+      data.filter((food) => {
+        return food.price === price;
+      })
+    );
+  };
+
   return (
     <div className="max-w-[1640px] m-auto px-4 py-12">
       <h1 className="text-orange-600 font-bold text-4xl text-center">
@@ -15,17 +35,45 @@ const Food = () => {
         <div>
           <p className="font-bold text-gray-700 uppercase">Filter type </p>
           <div className="flex justify-between flex-wrap">
-            <button className="m-4 px-7 py-2 rounded-xl border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white duration-300">
+            <button
+              onClick={() => {
+                setFood(data);
+              }}
+              className="m-4 px-7 py-2 rounded-xl border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white duration-300"
+            >
               ALl
             </button>
-            <button className="m-4 px-7 py-2 rounded-xl border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white duration-300">
+            <button
+              onClick={() => {
+                filterType('burger');
+              }}
+              className="m-4 px-7 py-2 rounded-xl border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white duration-300"
+            >
               Burger
             </button>
-            <button className="m-4 px-7 py-2 rounded-xl border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white duration-300">
+            <button
+              onClick={() => {
+                filterType('pizza');
+              }}
+              className="m-4 px-7 py-2 rounded-xl border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white duration-300"
+            >
               Pizza
             </button>
-            <button className="m-4 px-7 py-2 rounded-xl border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white duration-300">
+            <button
+              onClick={() => {
+                filterType('chicken');
+              }}
+              className="m-4 px-7 py-2 rounded-xl border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white duration-300"
+            >
               Chicken
+            </button>
+            <button
+              onClick={() => {
+                filterType('salad');
+              }}
+              className="m-4 px-7 py-2 rounded-xl border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white duration-300"
+            >
+              Salad
             </button>
           </div>
         </div>
@@ -33,20 +81,29 @@ const Food = () => {
         <div>
           <p className="font-bold text-gray-700 uppercase">filter price</p>
           <div className=" flex justify-between  ">
-            <button className="m-4 px-7 py-2 rounded-xl border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white duration-300">
+            <button
+              onClick={() => filterPrice('$')}
+              className="m-4 px-7 py-2 rounded-xl border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white duration-300"
+            >
               $
             </button>
-            <button className="m-4 px-7 py-2 rounded-xl border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white duration-300">
+            <button
+              onClick={() => filterPrice('$$')}
+              className="m-4 px-7 py-2 rounded-xl border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white duration-300"
+            >
               $$
             </button>
-            <button className="m-4 px-7 py-2 rounded-xl border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white duration-300">
+            <button
+              onClick={() => filterPrice('$$$')}
+              className="m-4 px-7 py-2 rounded-xl border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white duration-300"
+            >
               $$$
             </button>
-            <button className="m-4 px-7 py-2 rounded-xl border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white duration-300">
+            <button
+              onClick={() => filterPrice('$$$$')}
+              className="m-4 px-7 py-2 rounded-xl border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white duration-300"
+            >
               $$$$
-            </button>
-            <button className="m-4 px-7 py-2 rounded-xl border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white duration-300">
-              $$$$$
             </button>
           </div>
         </div>
